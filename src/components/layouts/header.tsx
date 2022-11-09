@@ -1,4 +1,9 @@
-const Header = () => {
+interface HeaderProps {
+  setShowModal: (openModal: boolean) => void;
+}
+const Header = ({ setShowModal }: HeaderProps) => {
+  const handlModal = () => setShowModal(true);
+
   return (
     <header className="bg-white mb-8">
       <nav className="flex py-2 justify-between container mx-auto items-center">
@@ -12,7 +17,7 @@ const Header = () => {
             />
           </div>
 
-          <button className="inline-block px-6 py-2 bg-green-500 text-white font-medium text-xs leading-tight rounded shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg transition duration-150 ease-in-out">
+          <button onClick={handlModal} className="btn-primary">
             سوال جدید
             <p className="inline pl-2 text-lg">+</p>
           </button>
