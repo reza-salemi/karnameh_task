@@ -1,9 +1,11 @@
+import ReactDOM from "react-dom";
+
 interface ModalProps {
   isVisible: boolean;
   setShowModal: (closeModal: boolean) => void;
 }
 
-const QuestionModal = ({ isVisible, setShowModal }: ModalProps) => {
+const ModalOverLay = ({ isVisible, setShowModal }: ModalProps) => {
   if (!isVisible) return null;
 
   const handleClose = () => {
@@ -11,7 +13,7 @@ const QuestionModal = ({ isVisible, setShowModal }: ModalProps) => {
   };
 
   return (
-    <div className="flex justify-center items-center fixed inset-0 bg-black bg-opacity-25">
+    <div className="flex justify-center items-center fixed inset-0 bg-black bg-opacity-40">
       <div className="bg-white w-[700px]">
         <header className="flex py-2 px-2 justify-between">
           <button onClick={handleClose}>
@@ -71,6 +73,18 @@ const QuestionModal = ({ isVisible, setShowModal }: ModalProps) => {
         </form>
       </div>
     </div>
+  );
+};
+
+const QuestionModal = ({ isVisible, setShowModal }: ModalProps) => {
+  const overLayElement = document.getElementById("overlay")!;
+  return (
+    <>
+      {ReactDOM.createPortal(
+        <ModalOverLay isVisible={isVisible} setShowModal={setShowModal} />,
+        overLayElement
+      )}
+    </>
   );
 };
 
