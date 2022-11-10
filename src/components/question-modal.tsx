@@ -58,7 +58,7 @@ const QuestionModal = ({ isVisible, setShowModal }: ModalProps) => {
               متن سوال
             </label>
             <textarea
-              className="text-right w-full border border-gray-200 rounded-md shadow-sm"
+              className="text-right w-full border border-gray-200 rounded-md shadow-sm px-4 py-4"
               rows={6}
               id="text"
             ></textarea>
