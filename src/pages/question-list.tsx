@@ -18,6 +18,8 @@ const QuestionList = () => {
         ? questions.map((question) => (
             <QuestionCard
               type="question"
+              key={question.id}
+              id={question.id}
               title={question.title}
               text={question.text}
               time={question.time}

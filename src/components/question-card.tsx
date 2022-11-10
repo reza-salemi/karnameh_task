@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router-dom";
 interface QuestionCardProps {
+  type: "card" | "question" | "comment";
+  id?: number;
   title: string;
   date: string;
   time: string;
@@ -6,10 +9,11 @@ interface QuestionCardProps {
   commentsCount?: number;
   likeCounts?: number;
   dislikeCounts?: number;
-  type: "card" | "question" | "comment";
 }
 
 const QuestionCard = ({
+  type,
+  id,
   title,
   date,
   time,
@@ -17,8 +21,11 @@ const QuestionCard = ({
   commentsCount,
   likeCounts,
   dislikeCounts,
-  type,
 }: QuestionCardProps) => {
+  const navigate = useNavigate();
+
+  const showDetail = (id: number | undefined) => navigate(`/question/${id}`);
+
   return (
     <article className="border rounded-lg border-slate-200 bg-[#F9F9F9] mb-4 shadow-md">
       <header className="flex bg-white justify-between border-b rounded-lg border-slate-200 py-2">
@@ -128,7 +135,10 @@ const QuestionCard = ({
       <section className="px-6 py-4">
         <p className="flex flex-row-reverse mb-4">{text}</p>
         {type === "question" ? (
-          <button className="px-2 py-2 border rounded-md border-[#27AE60] text-[#27AE60] hover:border-[#199DA3] hover:text-[#199DA3] text-sm">
+          <button
+            onClick={() => showDetail(id)}
+            className="px-2 py-2 border rounded-md border-[#27AE60] text-[#27AE60] hover:border-[#199DA3] hover:text-[#199DA3] text-sm"
+          >
             مشاهده جزییات
           </button>
         ) : null}
