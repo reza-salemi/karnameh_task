@@ -1,9 +1,6 @@
-interface HeaderProps {
-  setShowModal: (openModal: boolean) => void;
-}
-const Header = ({ setShowModal }: HeaderProps) => {
-  const handlModal = () => setShowModal(true);
+import AddQuestion from "../add-question";
 
+const Header = () => {
   return (
     <header className="bg-white mb-8">
       <nav className="flex py-2 justify-between container mx-auto items-center">
@@ -16,11 +13,7 @@ const Header = ({ setShowModal }: HeaderProps) => {
               alt="UserProfile Avatar"
             />
           </div>
-
-          <button onClick={handlModal} className="btn-primary">
-            سوال جدید
-            <p className="inline pl-2 text-lg">+</p>
-          </button>
+          <AddQuestion />
         </div>
 
         <h1 className="text-2xl">لیست سوالات</h1>

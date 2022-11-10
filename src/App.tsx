@@ -1,20 +1,19 @@
-import { useState } from "react";
+import { Route, Routes } from "react-router-dom";
 import Header from "./components/layouts/header";
-import QuestionModal from "./components/question-modal";
+import QuestionDetails from "./pages/question-details";
 import QuestionList from "./pages/question-list";
 
 function App() {
-  const [showModal, setShowModal] = useState(false);
-
   return (
     <div className="flex flex-col min-h-screen bg-[#E5E5E5] font-yekan">
-      <Header setShowModal={setShowModal} />
+      <Header />
 
       <main className="px-8 mb-4">
-        <QuestionList />
+        <Routes>
+          <Route path="/" element={<QuestionList />} />
+          <Route path="/question/:id" element={<QuestionDetails />} />
+        </Routes>
       </main>
-
-      <QuestionModal isVisible={showModal} setShowModal={setShowModal} />
     </div>
   );
 }
