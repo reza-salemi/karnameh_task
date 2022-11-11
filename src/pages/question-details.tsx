@@ -1,15 +1,30 @@
 import QuestionCard from "../components/question-card";
+import { useAppDispatch, useAppSelector } from "../app/hooks";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { getQuestionById } from "../features/question/question-by-id.slice";
 
 const QuestionDetails = () => {
+  const dispatch = useAppDispatch();
+
+  const { id } = useParams();
+  useEffect(() => {
+    dispatch(getQuestionById(id as string));
+  }, [dispatch, id]);
+
+  const { question, isLoading } = useAppSelector((state) => state.questionById);
+
+  if (isLoading) return <p>Loading...</p>;
+
   return (
     <>
       <QuestionCard
         type="card"
-        title="علی"
-        text="محمد"
-        time="14:00"
-        date="1400/18/9"
-        commentsCount={20}
+        title={question[0]?.title}
+        text={question[0]?.text}
+        time={question[0]?.time}
+        date={question[0]?.date}
+        commentsCount={question[0]?.commentsCount}
       />
 
       <section className="mb-8">
