@@ -1,9 +1,10 @@
 import AddQuestion from "../../features/question/add-question-button";
 
-const Header = () => {
+const Header = ({ title }: { title: string }) => {
   return (
     <header className="bg-white mb-8">
-      <nav className="flex py-2 justify-between container mx-auto items-center">
+      <nav className="flex flex-row-reverse py-2 justify-between container mx-auto items-center">
+        <h1 className="text-3xl">{title}</h1>
         <div className="flex gap-10">
           <div>
             <span>محمدرضا سالمی</span>
@@ -15,8 +16,6 @@ const Header = () => {
           </div>
           <AddQuestion />
         </div>
-
-        <h1 className="text-2xl">لیست سوالات</h1>
       </nav>
     </header>
   );
