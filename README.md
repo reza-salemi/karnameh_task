@@ -27,7 +27,8 @@ High-level plan is represented in the table
 | Add Questions | Completed ✔️ |
 | View Question | Completed ✔️ |
 | Fetch Comments | Completed ✔️ |
-| Reactions | Not Started 🚩 |
+| Reaction to Comments | Not Started 🚩 |
+| Add Comment | Not Started 🚩 |
 
 
 ## Technologies - Libraries
@@ -39,16 +40,17 @@ High-level plan is represented in the table
 - ✔️ **[`Axios`](https://github.com/axios/axios)** - Axios
 - ✔️ **[`Json Server`](https://github.com/typicode/json-server)** - Json Server
 
-##Hot to Run
-In the project directory, you can run:
+## Hot to Run
 
-npm start
-Runs the app in the development mode.
-Open http://localhost:3000 to view it in the browser.
+- In the project directory, you can run:
 
-npm run server
-Runs json server for backend.
-Open http://localhost:5000/contacts to view it in the browser.
+- npm start
+- Runs the app in the development mode.
+- Open http://localhost:3000 to view it in the browser.
+
+- npm run server
+- Runs json server for backend.
+- Open http://localhost:5000/contacts to view it in the browser.
 
 ## Contribution
-The application is in development status. You are feel free to submit pull request or create the issue.
+- The application is in development status. You are feel free to submit pull request or create the issue.
