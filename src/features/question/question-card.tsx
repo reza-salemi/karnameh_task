@@ -5,7 +5,7 @@ import { ReactComponent as CommentIcon } from "../../assets/comment.svg";
 
 interface QuestionCardProps {
   type: "card" | "question" | "comment";
-  id?: number;
+  id?: string;
   title: string;
   date: string;
   time: string;
@@ -28,7 +28,7 @@ const QuestionCard = ({
 }: QuestionCardProps) => {
   const navigate = useNavigate();
 
-  const showDetail = (id: number | undefined) => navigate(`/question/${id}`);
+  const showDetail = (id: string | undefined) => navigate(`/question/${id}`);
 
   return (
     <article className="border rounded-lg border-slate-200 bg-[#F9F9F9] mb-4 shadow-md">

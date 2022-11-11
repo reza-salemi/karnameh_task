@@ -1,8 +1,8 @@
 export type Question = {
-  id: number;
+  id: string;
   title: string;
   text: string;
   time: string;
   date: string;
-  comments: number;
+  commentsCount: number;
 };

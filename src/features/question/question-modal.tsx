@@ -22,7 +22,7 @@ const ModalOverLay = ({ isVisible, setShowModal }: ModalProps) => {
           </button>
           <h2>ایجاد سوال جدید</h2>
         </header>
-        <AddQuestionForm handleClose={handleClose} />
+        <AddQuestionForm setShowModal={setShowModal} />
       </div>
     </div>
   );
