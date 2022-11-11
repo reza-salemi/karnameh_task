@@ -5,6 +5,6 @@ export type Comment = {
   text: string;
   time: string;
   date: string;
-  likeCounts: 14;
-  dislikeCounts: 4;
+  likeCounts: number;
+  dislikeCounts: number;
 };
