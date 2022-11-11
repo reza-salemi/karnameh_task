@@ -24,7 +24,7 @@ const QuestionList = () => {
               text={question.text}
               time={question.time}
               date={question.date}
-              commentsCount={question.comments}
+              commentsCount={question.commentsCount}
             />
           ))
         : null}
