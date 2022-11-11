@@ -10,7 +10,9 @@ const QuestionList = () => {
     dispatch(getQuestions());
   }, [dispatch]);
 
-  const { questions } = useAppSelector((state) => state.question);
+  const { questions, isLoading } = useAppSelector((state) => state.question);
+
+  if (isLoading) return <p>Loading...</p>;
 
   return (
     <>
