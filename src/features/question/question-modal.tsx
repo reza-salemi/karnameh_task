@@ -1,5 +1,6 @@
 import ReactDOM from "react-dom";
 import AddQuestionForm from "./add-question-form";
+import { ReactComponent as CloseButton } from "../../assets/close-button.svg";
 interface ModalProps {
   isVisible: boolean;
   setShowModal: (closeModal: boolean) => void;
@@ -17,28 +18,7 @@ const ModalOverLay = ({ isVisible, setShowModal }: ModalProps) => {
       <div className="bg-white w-[700px]">
         <header className="flex py-2 px-2 justify-between">
           <button onClick={handleClose}>
-            <svg
-              width="12"
-              height="12"
-              viewBox="0 0 12 12"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M11 1L1 11"
-                stroke="#454545"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M11 11L1 1"
-                stroke="#454545"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
+            <CloseButton />
           </button>
           <h2>ایجاد سوال جدید</h2>
         </header>
