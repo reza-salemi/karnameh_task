@@ -1,4 +1,4 @@
-import { Question } from "../../types/question-types";
+import { Question } from "./question-types";
 
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import reqInstance from "../../lib";

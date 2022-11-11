@@ -1,5 +1,5 @@
 import { useState } from "react";
-import QuestionModal from "./layouts/question-modal";
+import QuestionModal from "./question-modal";
 
 const AddQuestion = () => {
   const [showModal, setShowModal] = useState(false);

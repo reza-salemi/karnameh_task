@@ -1,4 +1,4 @@
-import AddQuestion from "../add-question";
+import AddQuestion from "../../features/question/add-question";
 
 const Header = () => {
   return (

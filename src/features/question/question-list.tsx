@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../app/hooks";
-import QuestionCard from "../components/question-card";
-import { getQuestions } from "../features/question/question-slice";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import QuestionCard from "./question-card";
+import { getQuestions } from "./question-slice";
 
 const QuestionList = () => {
   const dispatch = useAppDispatch();
