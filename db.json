@@ -37,26 +37,52 @@
     {
       "id": "1",
       "questionId": "1",
-      "user": "محمدرضا سالمی",
+      "author": "محمدرضا سالمی",
       "text": "متغیر رو توی فایلت تغییر بده",
+      "time": "8:00",
+      "date": "1400/08/19",
       "likeCounts": 20,
       "dislikeCounts": 10
     },
     {
       "id": "2",
       "questionId": "1",
-      "user": "محمدرضا",
-      "text": "متغیر رو توی فایلت تغییر بده",
+      "author": "جمال",
+      "text": "این راه حل بهینه نیست",
+      "time": "8:00",
+      "date": "1400/08/19",
       "likeCounts": 10,
       "dislikeCounts": 5
     },
     {
       "id": "3",
-      "questionId": "2",
-      "user": "مریم",
-      "text": "متغیر رو توی فایلت تغییر بده",
+      "questionId": "1",
+      "author": "مریم",
+      "text": "باید از یوز افکت استفاده کنی",
+      "time": "6:00",
+      "date": "1400/08/20",
       "likeCounts": 4,
       "dislikeCounts": 12
+    },
+    {
+      "id": "4",
+      "questionId": "2",
+      "author": "مهران",
+      "text": "فولدر استراکچر رو باید تغییر بدی",
+      "time": "8:00",
+      "date": "1400/08/19",
+      "likeCounts": 20,
+      "dislikeCounts": 2
+    },
+    {
+      "id": "5",
+      "questionId": "2",
+      "author": "مریم",
+      "text": "متغیر رو توی فایلت تغییر بده",
+      "time": "8:00",
+      "date": "1400/08/19",
+      "likeCounts": 14,
+      "dislikeCounts": 4
     }
   ]
 }
