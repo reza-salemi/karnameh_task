@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { getQuestionById } from "../features/question/question-by-id.slice";
+import { getCommentsById } from "../features/comments/comment.slice";
 
 const QuestionDetails = () => {
   const dispatch = useAppDispatch();
@@ -10,9 +11,14 @@ const QuestionDetails = () => {
   const { id } = useParams();
   useEffect(() => {
     dispatch(getQuestionById(id as string));
+    dispatch(getCommentsById(id as string));
   }, [dispatch, id]);
 
   const { question, isLoading } = useAppSelector((state) => state.questionById);
+
+  const { comments, isLoading: loadingComment } = useAppSelector(
+    (state) => state.comments
+  );
 
   if (isLoading) return <p>Loading...</p>;
 
@@ -29,15 +35,25 @@ const QuestionDetails = () => {
 
       <section className="mb-8">
         <h2 className="text-right text-2xl font-bold mb-4">پاسخ ها</h2>
-        <QuestionCard
-          type="comment"
-          title="علی"
-          text="محمد"
-          time="14:00"
-          date="1400/18/9"
-          likeCounts={10}
-          dislikeCounts={12}
-        />
+        {loadingComment && (
+          <p className="flex justify-center">در حال دریافت پاسخ ها</p>
+        )}
+        {comments.length ? (
+          comments.map((comment) => (
+            <QuestionCard
+              type="comment"
+              key={comment.id}
+              title={comment.author}
+              text={comment.text}
+              time={comment.time}
+              date={comment.date}
+              likeCounts={comment.likeCounts}
+              dislikeCounts={comment.dislikeCounts}
+            />
+          ))
+        ) : (
+          <p className="flex justify-center">هنوز هیچ پاسخی ثبت نشده است</p>
+        )}
       </section>
 
       <form className="flow-root">
