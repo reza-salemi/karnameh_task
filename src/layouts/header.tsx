@@ -1,5 +1,5 @@
 import AddQuestion from "../components/add-question-button";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 const Header = () => {
   const { pathname } = useLocation();
@@ -15,7 +15,11 @@ const Header = () => {
     <header className="bg-white mb-8">
       <nav className="flex flex-row-reverse py-2 justify-between container mx-auto items-center">
         <h1 className="text-3xl">{title}</h1>
-        <div className="flex gap-10">
+        <Link to={"/"}>
+          <span className="text-2xl">خانه</span>
+        </Link>
+
+        <div className="flex gap-10 items-center">
           <div>
             <span>محمدرضا سالمی</span>
             <img
