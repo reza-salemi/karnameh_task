@@ -1,6 +1,16 @@
 import AddQuestion from "../components/add-question-button";
+import { useLocation } from "react-router-dom";
 
-const Header = ({ title }: { title: string }) => {
+const Header = () => {
+  const { pathname } = useLocation();
+
+  const title =
+    pathname === "/"
+      ? "لیست سوالات"
+      : pathname.includes("question")
+      ? "جزییات سوال"
+      : "";
+
   return (
     <header className="bg-white mb-8">
       <nav className="flex flex-row-reverse py-2 justify-between container mx-auto items-center">

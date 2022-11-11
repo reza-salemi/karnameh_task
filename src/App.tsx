@@ -1,20 +1,12 @@
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Layout from "./layouts/layout";
 import QuestionDetails from "./pages/question-details";
 import QuestionList from "./pages/question-list";
 
 function App() {
-  const { pathname } = useLocation();
-  const headerTitle =
-    pathname === "/"
-      ? "لیست سوالات"
-      : pathname.includes("question")
-      ? "جزییات سوال"
-      : "";
-
   return (
     <Routes>
-      <Route path="/" element={<Layout headerTitle={headerTitle} />}>
+      <Route path="/" element={<Layout />}>
         <Route index element={<QuestionList />} />
         <Route path="/question/:id" element={<QuestionDetails />} />
       </Route>
