@@ -45,7 +45,8 @@ High-level plan is represented in the table
 
 ## Application Structure
 
-![]('./assets/high-level.jpg')
+![](./assets/high-level.jpg)
+
 
 ## Hot to Run
 
