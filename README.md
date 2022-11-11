@@ -1,3 +1,6 @@
+# Question and Answer Forums
+> `Question and Answer Forums` application built with TypeScript and React. Like Other Question Forums you can ask some question and people are able to answer these questions. 
+
 🌀 Keep in mind this repository is work in progress and will be complete over time 🚀
 
 # ⭐ Support
@@ -39,6 +42,10 @@ High-level plan is represented in the table
 - ✔️ **[`Redux Toolkit`](https://github.com/reduxjs/redux-toolkit)** - Redux Toolkit
 - ✔️ **[`Axios`](https://github.com/axios/axios)** - Axios
 - ✔️ **[`Json Server`](https://github.com/typicode/json-server)** - Json Server
+
+## Application Structure
+
+![]('./assets/high-level.jpg')
 
 ## Hot to Run
 
