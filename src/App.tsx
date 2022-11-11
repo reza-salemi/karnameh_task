@@ -1,7 +1,7 @@
 import { Route, Routes, useLocation } from "react-router-dom";
 import Layout from "./components/layouts/layout";
-import QuestionDetails from "./features/question/question-details";
-import QuestionList from "./features/question/question-list";
+import QuestionDetails from "./pages/question-details";
+import QuestionList from "./pages/question-list";
 
 function App() {
   const { pathname } = useLocation();
