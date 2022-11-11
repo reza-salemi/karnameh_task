@@ -1,6 +1,11 @@
 import { Question } from "./question-types";
 
-import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
+import {
+  createSlice,
+  createAsyncThunk,
+  PayloadAction,
+  nanoid,
+} from "@reduxjs/toolkit";
 import reqInstance from "../../lib";
 
 type QuestionState = {
@@ -14,6 +19,18 @@ const initialState: QuestionState = {
   isLoading: false,
   error: null,
 };
+
+const now = new Date();
+
+const formatedDate = String(new Intl.DateTimeFormat("fa-IR").format(now));
+const formatedTime = String(
+  new Intl.DateTimeFormat("fa-IR", {
+    hour: "2-digit",
+    minute: "2-digit",
+  }).format(now)
+);
+
+const commentsCount = 0;
 
 export const getQuestions = createAsyncThunk(
   "question/fetchQuestions",
@@ -30,7 +47,25 @@ export const getQuestions = createAsyncThunk(
 const questionSlice = createSlice({
   name: "question",
   initialState,
-  reducers: {},
+  reducers: {
+    addQuestion: {
+      reducer(state, action: PayloadAction<Question>) {
+        state.questions.push(action.payload);
+      },
+      prepare(title: string, text: string) {
+        return {
+          payload: {
+            id: nanoid(),
+            title,
+            text,
+            date: formatedDate,
+            time: formatedTime,
+            commentsCount,
+          },
+        };
+      },
+    },
+  },
   extraReducers(builder) {
     builder
       .addCase(getQuestions.pending, (state, action) => {
@@ -50,4 +85,5 @@ const questionSlice = createSlice({
   },
 });
 
+export const { addQuestion } = questionSlice.actions;
 export default questionSlice.reducer;
