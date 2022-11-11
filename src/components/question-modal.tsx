@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom";
 import AddQuestionForm from "./add-question-form";
-import { ReactComponent as CloseButton } from "../../assets/close-button.svg";
+import { ReactComponent as CloseButton } from "../assets/close-button.svg";
 interface ModalProps {
   isVisible: boolean;
   setShowModal: (closeModal: boolean) => void;

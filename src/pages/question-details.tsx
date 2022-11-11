@@ -1,4 +1,4 @@
-import QuestionCard from "../features/question/question-card";
+import QuestionCard from "../components/question-card";
 
 const QuestionDetails = () => {
   return (

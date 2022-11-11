@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { ReactComponent as SadIcon } from "../../assets/sad.svg";
-import { ReactComponent as HappyIcon } from "../../assets/happy.svg";
-import { ReactComponent as CommentIcon } from "../../assets/comment.svg";
+import { ReactComponent as SadIcon } from "../assets/sad.svg";
+import { ReactComponent as HappyIcon } from "../assets/happy.svg";
+import { ReactComponent as CommentIcon } from "../assets/comment.svg";
 
 interface QuestionCardProps {
   type: "card" | "question" | "comment";

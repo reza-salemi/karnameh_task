@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useAppDispatch } from "../../app/hooks";
-import { addQuestion } from "./question-slice";
+import { useAppDispatch } from "../app/hooks";
+import { addQuestion } from "../features/question/question-slice";
 interface AddQuestionFormProp {
   setShowModal: (closeModal: boolean) => void;
 }

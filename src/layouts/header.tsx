@@ -1,4 +1,4 @@
-import AddQuestion from "../features/question/add-question-button";
+import AddQuestion from "../components/add-question-button";
 
 const Header = ({ title }: { title: string }) => {
   return (
