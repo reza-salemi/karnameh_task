@@ -50,15 +50,15 @@ High-level plan is represented in the table
 
 ## Hot to Run
 
-- In the project directory, you can run:
+In the project directory, you can run:
 
-- npm start
-- Runs the app in the development mode.
-- Open http://localhost:3000 to view it in the browser.
+npm start
+Runs the app in the development mode.
+Open http://localhost:3000 to view it in the browser.
 
-- npm run server
-- Runs json server for backend.
-- Open http://localhost:5000/contacts to view it in the browser.
+npm run server
+Runs json server for backend.
+Open http://localhost:5000/contacts to view it in the browser.
 
 ## Contribution
 - The application is in development status. You are feel free to submit pull request or create the issue.
