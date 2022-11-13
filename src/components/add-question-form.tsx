@@ -1,6 +1,8 @@
+import { nanoid } from "@reduxjs/toolkit";
 import { useState } from "react";
 import { useAppDispatch } from "../app/hooks";
-import { addQuestion } from "../features/question/question-slice";
+import { addNewQuestion } from "../features/question/question-slice";
+import { persianTime, persianDate } from "../utils/persian-date-time";
 interface AddQuestionFormProp {
   setShowModal: (closeModal: boolean) => void;
 }
@@ -13,6 +15,9 @@ const AddQuestionForm = ({ setShowModal }: AddQuestionFormProp) => {
 
   const { text, title } = form;
 
+  const id = nanoid();
+  const commentsCount = 0;
+
   const dispatch = useAppDispatch();
 
   const handleClose = () => {
@@ -20,20 +25,32 @@ const AddQuestionForm = ({ setShowModal }: AddQuestionFormProp) => {
   };
 
   const handleChange = (e: any) => {
-    e.preventDefault();
     const { id, value } = e.target;
     setForm((prevForm) => ({ ...prevForm, [id]: value }));
   };
 
+  const canSave = Boolean(title) && Boolean(text);
+
   const onSaveQuestionClicked = () => {
-    if (title && text) {
-      dispatch(addQuestion(title, text));
+    if (canSave) {
+      try {
+        dispatch(
+          addNewQuestion({
+            id,
+            title,
+            text,
+            time: persianTime,
+            date: persianDate,
+            commentsCount,
+          })
+        ).unwrap();
+      } catch (error) {
+        console.error("Failed to save Question", error);
+      }
 
       handleClose();
     }
   };
-
-  const canSave = Boolean(title) && Boolean(text);
 
   return (
     <form className="bg-[#F9F9F9] px-8 py-4">

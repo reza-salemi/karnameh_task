@@ -1,11 +1,6 @@
 import { Question } from "./question-types";
 
-import {
-  createSlice,
-  createAsyncThunk,
-  PayloadAction,
-  nanoid,
-} from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import reqInstance from "../../lib";
 
 type QuestionState = {
@@ -20,18 +15,6 @@ const initialState: QuestionState = {
   error: null,
 };
 
-const now = new Date();
-
-const formatedDate = String(new Intl.DateTimeFormat("fa-IR").format(now));
-const formatedTime = String(
-  new Intl.DateTimeFormat("fa-IR", {
-    hour: "2-digit",
-    minute: "2-digit",
-  }).format(now)
-);
-
-const commentsCount = 0;
-
 export const getQuestions = createAsyncThunk(
   "question/fetchQuestions",
   async (_, thunkApi) => {
@@ -44,28 +27,18 @@ export const getQuestions = createAsyncThunk(
   }
 );
 
+export const addNewQuestion = createAsyncThunk(
+  "questions/addNewQuestion",
+  async (initialState: Question) => {
+    const response = await reqInstance.post("questions", initialState);
+    return response.data;
+  }
+);
+
 const questionSlice = createSlice({
   name: "question",
   initialState,
-  reducers: {
-    addQuestion: {
-      reducer(state, action: PayloadAction<Question>) {
-        state.questions.push(action.payload);
-      },
-      prepare(title: string, text: string) {
-        return {
-          payload: {
-            id: nanoid(),
-            title,
-            text,
-            date: formatedDate,
-            time: formatedTime,
-            commentsCount,
-          },
-        };
-      },
-    },
-  },
+  reducers: {},
   extraReducers(builder) {
     builder
       .addCase(getQuestions.pending, (state, action) => {
@@ -81,9 +54,14 @@ const questionSlice = createSlice({
       .addCase(getQuestions.rejected, (state, action: PayloadAction<any>) => {
         state.isLoading = false;
         state.error = action.payload;
-      });
+      })
+      .addCase(
+        addNewQuestion.fulfilled,
+        (state, action: PayloadAction<Question>) => {
+          state.questions.push(action.payload);
+        }
+      );
   },
 });
 
-export const { addQuestion } = questionSlice.actions;
 export default questionSlice.reducer;
